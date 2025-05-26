@@ -34,9 +34,14 @@ const ProductList: React.FC = () => {
                     {
                         products.map((product) =>
                             <div className="card ms-2" style={{ width: "150px" }}>
-                                <div>{product.name}</div>
-                                <div>{product.description}</div>
-                                <div>{product.price}</div>
+                                <div className="card-header" style={{height:"50px",maxHeight:"50px"}}>
+                                    <h6 className="class-title">{product.name}</h6>
+                                </div>
+                                <div className="class-text p-2" style={{height:"150px",maxHeight:"150px"}}>{product.description}</div>
+                                <div className="card-footer">
+                                     <div>{product.price}</div>
+                                </div>
+                               
                             </div>
                         )
                     }
