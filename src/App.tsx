@@ -1,15 +1,25 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './dashboard/Dashboard';
 import ProductList from './products/components/ProductList';
+import MainLayout from './MainLayout';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      { path: '/', element: <Dashboard /> },
+      { path: 'products', element: <ProductList /> }
+    ]
+  },
+
+])
 
 function App() {
-
-
-
   return (
-    <div className="p-3 w-100">
-      <ProductList></ProductList>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
